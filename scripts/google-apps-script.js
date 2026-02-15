@@ -48,14 +48,18 @@ function doPost(e) {
       var sheet = ss.getSheetByName('Descargas') || ss.insertSheet('Descargas');
       
       if (sheet.getLastRow() === 0) {
-        sheet.appendRow(['Timestamp', 'Documento', 'URL', 'User Agent']);
-        sheet.getRange(1, 1, 1, 4).setFontWeight('bold');
+        sheet.appendRow(['Timestamp', 'Documento', 'URL', 'Country', 'Country Code', 'City', 'Language', 'User Agent']);
+        sheet.getRange(1, 1, 1, 8).setFontWeight('bold');
       }
       
       sheet.appendRow([
         data.timestamp || new Date().toISOString(),
         data.document || '',
         data.href || '',
+        data.country || '',
+        data.countryCode || '',
+        data.city || '',
+        data.language || '',
         data.userAgent || ''
       ]);
       

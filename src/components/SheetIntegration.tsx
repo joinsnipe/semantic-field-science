@@ -122,12 +122,31 @@ export function DownloadCard({
   subtitle: string;
   variant?: 'default' | 'red';
 }) {
-  function trackDownload() {
+  async function trackDownload() {
     if (!SCRIPT_URL) return;
+
+    // Geo lookup (same as VisitTracker)
+    let country = '';
+    let countryCode = '';
+    let city = '';
+    try {
+      const geo = await fetch('https://ipapi.co/json/');
+      if (geo.ok) {
+        const g = await geo.json();
+        country = g.country_name || '';
+        countryCode = g.country_code || '';
+        city = g.city || '';
+      }
+    } catch { /* optional */ }
+
     const data = {
       type: 'download',
       document: title,
       href,
+      country,
+      countryCode,
+      city,
+      language: navigator.language || '',
       timestamp: new Date().toISOString(),
       userAgent: navigator.userAgent,
     };
