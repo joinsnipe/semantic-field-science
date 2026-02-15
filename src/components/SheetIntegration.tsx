@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useLang } from '@/components/LanguageProvider';
 
 // Google Apps Script Web App URL — user must deploy the script and paste URL here
 const SCRIPT_URL = process.env.NEXT_PUBLIC_GSHEET_URL || '';
@@ -8,6 +9,7 @@ const SCRIPT_URL = process.env.NEXT_PUBLIC_GSHEET_URL || '';
 export function NewsletterForm() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
   const [accepted, setAccepted] = useState(false);
+  const { t } = useLang();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -43,8 +45,8 @@ export function NewsletterForm() {
     return (
       <div className="text-center py-8">
         <div className="text-4xl mb-4">✓</div>
-        <p className="text-lg font-semibold text-[#1a1a2e] mb-2">Registrado</p>
-        <p className="text-sm text-gray-400">Recibirás las próximas publicaciones del MCSH.</p>
+        <p className="text-lg font-semibold text-[#1a1a2e] mb-2">{t('form.done.title')}</p>
+        <p className="text-sm text-gray-400">{t('form.done.desc')}</p>
       </div>
     );
   }
@@ -55,31 +57,31 @@ export function NewsletterForm() {
         name="name"
         type="text"
         required
-        placeholder="Nombre"
+        placeholder={t('form.name')}
         className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#1a1a2e] placeholder-gray-400 focus:border-[#6d4aff] focus:outline-none focus:ring-1 focus:ring-[#6d4aff]/20 transition-colors bg-white"
       />
       <input
         name="email"
         type="email"
         required
-        placeholder="Correo electrónico"
+        placeholder={t('form.email')}
         className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#1a1a2e] placeholder-gray-400 focus:border-[#6d4aff] focus:outline-none focus:ring-1 focus:ring-[#6d4aff]/20 transition-colors bg-white"
       />
       <input
         name="country"
         type="text"
-        placeholder="País"
+        placeholder={t('form.country')}
         className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#1a1a2e] placeholder-gray-400 focus:border-[#6d4aff] focus:outline-none focus:ring-1 focus:ring-[#6d4aff]/20 transition-colors bg-white"
       />
       <select
         name="interest"
         className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-400 focus:border-[#6d4aff] focus:outline-none focus:ring-1 focus:ring-[#6d4aff]/20 transition-colors bg-white"
       >
-        <option value="">Área de interés</option>
-        <option value="mcsh">MCSH – Marco teórico</option>
-        <option value="observatory">Observatory – Fragilidad sistémica</option>
-        <option value="spe">SPE – Auditoría y trazabilidad IA</option>
-        <option value="all">Todo</option>
+        <option value="">{t('form.interest')}</option>
+        <option value="mcsh">{t('form.interest.mcsh')}</option>
+        <option value="observatory">{t('form.interest.obs')}</option>
+        <option value="spe">{t('form.interest.spe')}</option>
+        <option value="all">{t('form.interest.all')}</option>
       </select>
       <label className="flex items-start gap-2 pt-1">
         <input
@@ -89,8 +91,8 @@ export function NewsletterForm() {
           onChange={(e) => setAccepted(e.target.checked)}
         />
         <span className="text-[10px] text-gray-400">
-          Acepto la{' '}
-          <a href="/privacy" className="text-[#6d4aff] hover:underline">Política de Privacidad</a>
+          {t('form.privacy')}{' '}
+          <a href="/privacy" className="text-[#6d4aff] hover:underline">{t('form.privacy.link')}</a>
         </span>
       </label>
       <button
@@ -98,10 +100,10 @@ export function NewsletterForm() {
         disabled={!accepted || status === 'sending'}
         className="w-full py-2.5 bg-[#1a1a2e] text-white text-sm font-medium rounded-lg hover:bg-[#2a2a4e] transition-colors mt-2 disabled:opacity-40 disabled:cursor-not-allowed"
       >
-        {status === 'sending' ? 'Enviando...' : 'Registro'}
+        {status === 'sending' ? t('form.sending') : t('form.submit')}
       </button>
       {status === 'error' && (
-        <p className="text-xs text-red-500 text-center">Error al enviar. Inténtalo de nuevo.</p>
+        <p className="text-xs text-red-500 text-center">{t('form.error')}</p>
       )}
     </form>
   );
@@ -129,7 +131,6 @@ export function DownloadCard({
       timestamp: new Date().toISOString(),
       userAgent: navigator.userAgent,
     };
-    // Fire-and-forget — don't block the download
     fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',

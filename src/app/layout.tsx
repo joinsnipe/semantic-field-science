@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { LanguageProvider } from '@/components/LanguageProvider';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -10,11 +11,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Semantic Field Science · Modelo del Campo Semántico Humano',
+    default: 'Semantic Field Science · Human Semantic Field Model',
     template: '%s · Semantic Field Science',
   },
   description:
-    'Marco conceptual fundacional para la dinámica del significado humano (MCSH). Observatorio de Fragilidad Sistémica, SPE Audit, SPE Trace. Autor: Rubén Abella.',
+    'Foundational conceptual framework for human meaning dynamics (MCSH). Systemic Fragility Observatory, SPE Audit, SPE Trace. Author: Rubén Abella.',
   metadataBase: new URL('https://www.semanticfieldscience.org'),
   keywords: [
     'Semantic Field Science',
@@ -45,9 +46,9 @@ export const metadata: Metadata = {
     alternateLocale: 'en_US',
     url: 'https://www.semanticfieldscience.org',
     siteName: 'Semantic Field Science',
-    title: 'Semantic Field Science · El significado se mueve. Ahora se puede medir.',
+    title: 'Semantic Field Science · Meaning moves. Now it can be measured.',
     description:
-      'Marco conceptual fundacional (MCSH): la distancia entre lo que un sistema dice que es y lo que realmente es. Observatorio de Fragilidad Sistémica en vivo.',
+      'Foundational conceptual framework (MCSH): the distance between what a system says it is and what it actually is. Live Systemic Fragility Observatory.',
     images: [
       {
         url: '/og-image.png',
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Semantic Field Science · MCSH',
     description:
-      'La distancia entre la narrativa y la realidad no es un problema filosófico. Es un problema técnico con solución.',
+      'The distance between narrative and reality is not a philosophical problem. It is a technical problem with a solution.',
     images: ['/og-image.png'],
     creator: '@semanticfield',
   },
@@ -79,10 +80,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.semanticfieldscience.org',
-    languages: {
-      'es': 'https://www.semanticfieldscience.org',
-      'en': 'https://www.semanticfieldscience.org',
-    },
   },
   verification: {
     // Add your verification codes here when ready
@@ -201,14 +198,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.variable} font-sans`}>{children}</body>
+      <body className={`${inter.variable} font-sans`}>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }
