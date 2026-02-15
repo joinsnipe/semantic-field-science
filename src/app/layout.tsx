@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { LanguageProvider } from '@/components/LanguageProvider';
 import { VisitTracker } from '@/components/VisitTracker';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,14 +38,19 @@ export const metadata: Metadata = {
   creator: 'Rubén Abella',
   publisher: 'Semantic Field Science',
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', type: 'image/png', sizes: '96x96' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
+  manifest: '/site.webmanifest',
   openGraph: {
     type: 'website',
-    locale: 'es_ES',
-    alternateLocale: 'en_US',
+    locale: 'en_US',
+    alternateLocale: 'es_ES',
     url: 'https://www.semanticfieldscience.org',
     siteName: 'Semantic Field Science',
     title: 'Semantic Field Science · Meaning moves. Now it can be measured.',
@@ -81,6 +87,11 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.semanticfieldscience.org',
+    languages: {
+      'en': 'https://www.semanticfieldscience.org',
+      'es': 'https://www.semanticfieldscience.org',
+      'x-default': 'https://www.semanticfieldscience.org',
+    },
   },
   verification: {
     // Add your verification codes here when ready
@@ -211,6 +222,7 @@ export default function RootLayout({
           <VisitTracker />
           {children}
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
