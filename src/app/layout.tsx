@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { LanguageProvider } from '@/components/LanguageProvider';
 import { VisitTracker } from '@/components/VisitTracker';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -211,6 +212,7 @@ export default function RootLayout({
           <VisitTracker />
           {children}
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
