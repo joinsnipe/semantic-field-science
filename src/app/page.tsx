@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { NewsletterForm, DownloadCard } from '@/components/SheetIntegration';
 
 export const metadata: Metadata = {
   title: 'El significado se mueve. Ahora se puede medir. · Semantic Field Science',
@@ -386,26 +387,19 @@ export default function Home() {
             Textos públicos del MCSH. El documento fundacional se publica sin aplicaciones ni promesas: como referencia estable.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            {/* Foundational doc */}
-            <a
+            <DownloadCard
               href="/docs/Documento_Fundacional_MCSH.pdf"
-              download
-              className="group flex flex-col items-center gap-3 p-6 rounded-xl border border-gray-100 hover:border-[#6d4aff]/30 hover:shadow-lg hover:shadow-[#6d4aff]/5 transition-all duration-300"
-            >
-              <span className="text-3xl">📄</span>
-              <span className="text-base font-semibold text-[#1a1a2e] group-hover:text-[#6d4aff] transition-colors">Documento Fundacional</span>
-              <span className="text-xs text-gray-400">MCSH v1.0 · PDF · 316 KB</span>
-            </a>
-            {/* Case study PDF */}
-            <a
+              icon="📄"
+              title="Documento Fundacional"
+              subtitle="MCSH v1.0 · PDF"
+            />
+            <DownloadCard
               href="/docs/Burbuja_Sintetica_Caso_Estudio.pdf"
-              download
-              className="group flex flex-col items-center gap-3 p-6 rounded-xl border border-[#e63946]/10 bg-[#e63946]/[0.02] hover:border-[#e63946]/30 hover:shadow-lg hover:shadow-[#e63946]/5 transition-all duration-300"
-            >
-              <span className="text-3xl">📊</span>
-              <span className="text-base font-semibold text-[#1a1a2e] group-hover:text-[#e63946] transition-colors">Caso de Estudio</span>
-              <span className="text-xs text-gray-400">Burbuja Sintética · Feb 2026 · PDF · 558 KB</span>
-            </a>
+              icon="📈"
+              title="Caso de Estudio"
+              subtitle="Burbuja Sintética · Feb 2026 · PDF"
+              variant="red"
+            />
           </div>
           <p className="text-xs text-gray-300 mt-4">
             También disponible: <a href="/docs/Burbuja_Sintetica_Caso_Estudio.md" download className="underline hover:text-gray-500 transition-colors">versión Markdown</a>
@@ -533,45 +527,7 @@ export default function Home() {
           <p className="text-base text-gray-400 mb-8">
             Registro para recibir actualizaciones del archivo público (nuevas notas, revisiones y documentos).
           </p>
-          <form className="space-y-3 text-left" action="#">
-            <input
-              type="text"
-              placeholder="Nombre"
-              className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#1a1a2e] placeholder-gray-400 focus:border-[#6d4aff] focus:outline-none focus:ring-1 focus:ring-[#6d4aff]/20 transition-colors bg-white"
-            />
-            <input
-              type="email"
-              placeholder="Correo electrónico"
-              className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#1a1a2e] placeholder-gray-400 focus:border-[#6d4aff] focus:outline-none focus:ring-1 focus:ring-[#6d4aff]/20 transition-colors bg-white"
-            />
-            <input
-              type="text"
-              placeholder="País"
-              className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-[#1a1a2e] placeholder-gray-400 focus:border-[#6d4aff] focus:outline-none focus:ring-1 focus:ring-[#6d4aff]/20 transition-colors bg-white"
-            />
-            <select
-              className="w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm text-gray-400 focus:border-[#6d4aff] focus:outline-none focus:ring-1 focus:ring-[#6d4aff]/20 transition-colors bg-white"
-            >
-              <option value="">Área de interés</option>
-              <option value="mcsh">MCSH – Marco teórico</option>
-              <option value="observatory">Observatory – Fragilidad sistémica</option>
-              <option value="spe">SPE – Auditoría y trazabilidad IA</option>
-              <option value="all">Todo</option>
-            </select>
-            <label className="flex items-start gap-2 pt-1">
-              <input type="checkbox" className="mt-1 accent-[#6d4aff]" />
-              <span className="text-[10px] text-gray-400">
-                Acepto la{' '}
-                <a href="#" className="text-[#6d4aff] hover:underline">Política de Privacidad</a>
-              </span>
-            </label>
-            <button
-              type="submit"
-              className="w-full py-2.5 bg-[#1a1a2e] text-white text-sm font-medium rounded-lg hover:bg-[#2a2a4e] transition-colors mt-2"
-            >
-              Registro
-            </button>
-          </form>
+          <NewsletterForm />
         </div>
       </section>
 
@@ -608,6 +564,7 @@ export default function Home() {
             <a href="https://speaudit.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#1a1a2e] transition-colors">SPE Audit ↗</a>
             <a href="https://spetrace.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#1a1a2e] transition-colors">SPE Trace ↗</a>
             <Link href="/about" className="hover:text-[#1a1a2e] transition-colors">About</Link>
+            <Link href="/privacy" className="hover:text-[#1a1a2e] transition-colors">Privacidad</Link>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 text-[10px] text-gray-400">
             <a href="mailto:contact@semanticfieldscience.org" className="hover:text-[#1a1a2e] transition-colors">

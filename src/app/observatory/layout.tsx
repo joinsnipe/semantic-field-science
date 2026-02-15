@@ -38,7 +38,7 @@ export default function ObservatoryLayout({
       <aside className="hidden lg:flex flex-col w-56 flex-shrink-0 border-r border-obs-border bg-obs-bg fixed top-0 left-0 bottom-0 z-40">
         {/* Logo area */}
         <div className="px-4 py-4 border-b border-obs-border">
-          <Link href="/observatory" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <span className="text-sm font-bold text-white">SFS</span>
             <span className="text-xs text-obs-text-secondary/40">Observatory</span>
           </Link>
@@ -106,7 +106,7 @@ export default function ObservatoryLayout({
       {/* Mobile header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-obs-bg/95 backdrop-blur-xl border-b border-obs-border">
         <div className="flex items-center justify-between px-4 h-12">
-          <Link href="/observatory" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <span className="text-sm font-bold text-white">SFS</span>
             <span className="text-xs text-obs-text-secondary/40">Observatory</span>
           </Link>
