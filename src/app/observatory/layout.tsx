@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { useLang, LangToggle } from '@/components/LanguageProvider';
 
 const navLinks = [
   { href: '/observatory', label: 'Dashboard', icon: '◉' },
@@ -11,13 +12,17 @@ const navLinks = [
   { href: '/observatory/casestudy', label: 'Case Study', icon: '◧' },
 ];
 
-const sidebarMetrics = [
-  { label: 'α', value: '0.776', status: 'critical' },
-  { label: 'Estado', value: "S1'", status: 'critical' },
-  { label: 'T_med', value: '3.1m', status: 'warning' },
-  { label: 'P(S2+ 12m)', value: '72.7%', status: 'critical' },
-  { label: 'PNR', value: '78%', status: 'warning' },
-];
+function useSidebarMetrics() {
+  const { locale } = useLang();
+  const en = locale === 'en';
+  return [
+    { label: 'α', value: '0.776', status: 'critical' },
+    { label: en ? 'State' : 'Estado', value: "S1'", status: 'critical' },
+    { label: 'T_med', value: '3.1m', status: 'warning' },
+    { label: 'P(S2+ 12m)', value: '72.7%', status: 'critical' },
+    { label: 'PNR', value: '78%', status: 'warning' },
+  ];
+}
 
 function StatusDot({ status }: { status: string }) {
   if (status === 'critical') return <div className="w-1.5 h-1.5 rounded-full bg-obs-red" />;
@@ -31,6 +36,9 @@ export default function ObservatoryLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const { locale } = useLang();
+  const en = locale === 'en';
+  const sidebarMetrics = useSidebarMetrics();
 
   return (
     <div className="min-h-screen bg-obs-bg flex">
@@ -92,14 +100,15 @@ export default function ObservatoryLayout({
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="px-4 py-3 border-t border-obs-border">
+        {/* Lang + Footer */}
+        <div className="px-4 py-3 border-t border-obs-border flex items-center justify-between">
           <Link
             href="/"
             className="text-[10px] text-obs-text-secondary/30 hover:text-obs-text-secondary/60 transition-colors"
           >
             ← MCSH Framework
           </Link>
+          <LangToggle />
         </div>
       </aside>
 
@@ -167,25 +176,26 @@ export default function ObservatoryLayout({
 
               <div>
                 <p className="text-[9px] font-mono text-obs-text-secondary/30 uppercase tracking-wider mb-2">
-                  Enlaces
+                  {en ? 'Links' : 'Enlaces'}
                 </p>
                 <div className="flex flex-col gap-1.5">
                   <Link href="/" className="text-xs text-obs-text-secondary/50 hover:text-white transition-colors">
-                    Framework MCSH
+                    MCSH Framework
                   </Link>
                   <Link href="/observatory/casestudy" className="text-xs text-obs-text-secondary/50 hover:text-white transition-colors">
-                    Caso de estudio
+                    {en ? 'Case Study' : 'Caso de estudio'}
                   </Link>
                   <Link href="/observatory/methodology" className="text-xs text-obs-text-secondary/50 hover:text-white transition-colors">
-                    Metodología
+                    {en ? 'Methodology' : 'Metodología'}
                   </Link>
                 </div>
               </div>
 
               <div>
                 <p className="text-[10px] text-obs-text-secondary/30 leading-relaxed mb-2">
-                  Caso de estudio público. No es consejo financiero.
-                  Puede ser compartido, citado y debatido libremente.
+                  {en
+                    ? 'Public case study. Not financial advice. May be shared, cited, and debated freely.'
+                    : 'Caso de estudio público. No es consejo financiero. Puede ser compartido, citado y debatido libremente.'}
                 </p>
                 <p className="text-[10px] text-obs-text-secondary/20 font-mono">
                   © 2026 Semantic Field Science

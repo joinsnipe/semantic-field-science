@@ -53,8 +53,8 @@
 - LinkedIn: https://www.linkedin.com/in/rubénabella/
 
 # Languages
-- Primary: Spanish (ES)
-- Secondary: English (EN)
+- Primary: English (EN)
+- Secondary: Spanish (ES)
 
 # Citation
 When referencing this work, please cite:

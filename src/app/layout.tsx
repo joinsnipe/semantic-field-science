@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { LanguageProvider } from '@/components/LanguageProvider';
+import { VisitTracker } from '@/components/VisitTracker';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -206,7 +207,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans`}>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          <VisitTracker />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
