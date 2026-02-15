@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Outer field (reality) -->
+  <ellipse cx="220" cy="256" rx="140" ry="160" stroke="#1a1a2e" stroke-width="8" fill="none" opacity="0.35"/>
+  <!-- Inner field (narrative) — offset to show divergence -->
+  <ellipse cx="292" cy="256" rx="140" ry="160" stroke="#6d4aff" stroke-width="8" fill="none" opacity="0.45"/>
+  <!-- Divergence measurement line -->
+  <line x1="220" y1="256" x2="292" y2="256" stroke="#1a1a2e" stroke-width="5" stroke-dasharray="8 6"/>
+  <!-- S(t) node -->
+  <circle cx="220" cy="256" r="10" fill="#1a1a2e"/>
+  <!-- R(t) node -->
+  <circle cx="292" cy="256" r="10" fill="#6d4aff"/>
+  <!-- D(t) label area — small bar -->
+  <rect x="240" y="248" width="32" height="5" rx="2" fill="#1a1a2e" opacity="0.6"/>
+</svg>

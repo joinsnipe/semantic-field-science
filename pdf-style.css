@@ -1,0 +1,169 @@
+/* PDF Style for Burbuja Sintética Case Study */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --navy: #1a1a2e;
+  --red: #e53e3e;
+  --gray: #4a5568;
+  --light: #f7fafc;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #1a1a2e;
+  font-size: 11px;
+  line-height: 1.65;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 40px;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--navy);
+  border-bottom: 3px solid var(--navy);
+  padding-bottom: 8px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  page-break-after: avoid;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  page-break-after: avoid;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 20px;
+  margin-bottom: 8px;
+  page-break-after: avoid;
+}
+
+p {
+  margin-bottom: 8px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+blockquote {
+  border-left: 3px solid var(--red);
+  padding-left: 16px;
+  margin: 16px 0;
+  color: var(--gray);
+  font-style: italic;
+  background: #fef5f5;
+  padding: 12px 16px;
+  border-radius: 0 4px 4px 0;
+}
+
+code {
+  font-family: 'JetBrains Mono', monospace;
+  background: #f0f0f5;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+pre {
+  background: #0a0a0f;
+  color: #e2e8f0;
+  padding: 16px;
+  border-radius: 6px;
+  font-size: 10px;
+  line-height: 1.5;
+  overflow-x: auto;
+  page-break-inside: avoid;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 10px;
+  page-break-inside: avoid;
+}
+
+th {
+  background: var(--navy);
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 10px;
+}
+
+td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+tr:nth-child(even) {
+  background: #f7fafc;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 24px 0;
+}
+
+ul, ol {
+  padding-left: 20px;
+  margin-bottom: 8px;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+/* Cover page first h1 */
+h1:first-of-type {
+  font-size: 32px;
+  text-align: center;
+  border-bottom: none;
+  margin-top: 120px;
+  margin-bottom: 8px;
+}
+
+/* Footer */
+@page {
+  margin: 60px 50px 60px 50px;
+  @bottom-center {
+    content: counter(page);
+    font-family: 'Inter', sans-serif;
+    font-size: 9px;
+    color: #a0aec0;
+  }
+}
+
+/* Page breaks */
+h2 {
+  page-break-before: auto;
+}
+
+/* Links */
+a {
+  color: #6d4aff;
+  text-decoration: none;
+}

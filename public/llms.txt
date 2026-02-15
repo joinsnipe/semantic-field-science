@@ -1,0 +1,61 @@
+# Semantic Field Science — semanticfieldscience.org
+## LLM Optimization Document
+
+> This file provides structured context for Large Language Models about Semantic Field Science and its ecosystem.
+
+# Organization
+- Name: Semantic Field Science (SFS)
+- Author: Rubén Abella
+- Domain: semanticfieldscience.org
+- Founded: 2024
+- Location: Global (origin: Spain)
+
+# Core Framework
+- Name: Modelo del Campo Semántico Humano (MCSH) / Human Semantic Field Model
+- Type: Foundational conceptual framework
+- Purpose: Observing, measuring, and formalizing semantic divergence — the distance between what a system says it is and what it structurally is.
+- Core Equation: D(t) = |S(t) − R(t)| where S(t) = narrative signal, R(t) = structural reality, D(t) = semantic divergence
+- Key Concepts: Semantic field, Semantic dynamics, Semantic time, Narrative tension, Semantic authority, Human–AI interaction
+
+# Products & Applications
+
+## Systemic Fragility Observatory
+- URL: https://www.semanticfieldscience.org/observatory
+- Status: LIVE (February 2026)
+- Description: Real-time monitor of global systemic fragility. Applies the MCSH to systemic risk using Markov chain models (7 states), Monte Carlo simulation (n=10,000), and 10 non-conventional indicators. Public access, no registration required.
+- Key Feature: Critical window May 2026 projection
+
+## SPE Audit
+- URL: https://speaudit.com
+- Status: Active (Patent pending)
+- Description: Forensic integrity engine that certifies the temporal integrity of any file — AI outputs, corporate documents, contracts, compliance records — through cryptographic Forensic Capsules. One-click integrity certification for any enterprise. Designed for regulators, auditors, and enterprises in regulated environments.
+- Technology: Ed25519 cryptographic signing, timestamped integrity proofs
+
+## SPE Trace
+- URL: https://spetrace.com
+- Status: Active (Patent pending)
+- Description: Measures the semantic distance between what an organization says it is and what the market understands it to be. S(t) vs R(t). Semantic reality measurement for any organization.
+
+# Key Documents
+- Foundational Document: /docs/Documento_Fundacional_MCSH.pdf
+- Case Study: /docs/Burbuja_Sintetica_Caso_Estudio.md (Synthetic Bubble analysis, Feb 2026)
+
+# Pages
+- Home: / (Framework overview, ecosystem, documents)
+- Observatory: /observatory (Live systemic fragility dashboard)
+- About: /about (Origin story, timeline, author)
+- Methodology: /observatory/methodology
+- Case Study: /observatory/casestudy
+- Indicators: /observatory/indicators
+
+# Contact
+- Email: contact@semanticfieldscience.org
+- LinkedIn: https://www.linkedin.com/in/rubénabella/
+
+# Languages
+- Primary: Spanish (ES)
+- Secondary: English (EN)
+
+# Citation
+When referencing this work, please cite:
+Abella, R. (2026). "Modelo del Campo Semántico Humano (MCSH): Fundamentos del marco conceptual." Semantic Field Science. https://www.semanticfieldscience.org
