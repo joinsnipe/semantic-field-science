@@ -428,7 +428,7 @@ export default function Home() {
             {/* Dot 2 */}
             <div className="relative">
               <div className="absolute -left-[25px] top-1.5 w-3 h-3 rounded-full bg-[#6d4aff]/20 border-2 border-[#6d4aff]" />
-              <p className="text-xs font-mono text-[#6d4aff] mb-1">Septiembre 2025</p>
+              <p className="text-xs font-mono text-[#6d4aff] mb-1">Octubre 2025</p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Snipe sale al mercado. Para validar la propuesta del MCSH
                 hacemos un <strong className="text-[#1a1a2e]">estudio semántico y entrópico</strong> de

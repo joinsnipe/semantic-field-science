@@ -18,13 +18,13 @@ const timeline = [
       'Nace Snipe — un marketplace de subastas. Intentando sobrevivir, empezamos a medir cómo nos posicionaban los modelos de lenguaje frente a la competencia.',
   },
   {
-    year: 'Sep 2025',
+    year: 'Oct 2025',
     title: 'La anomalía',
     content:
       'Snipe sale al mercado. Hacemos un estudio semántico y entrópico de más de 700 empresas — mapas de calor, k-cluster, análisis de singularidad. Resultado: #17 entre las más singulares. Posicionados por delante de grandes plataformas con cero inversión. Pero el mercado no compraba. Algo no cuadraba.',
   },
   {
-    year: 'Sep 2025',
+    year: 'Oct 2025',
     title: 'La pregunta',
     content:
       '¿Por qué existe esa distancia? Si nosotros nos posicionábamos legítimamente... ¿qué pasa cuando alguien lo hace ilegítimamente? ¿Quién mide esa distancia? ¿Quién la certifica? Nadie.',
