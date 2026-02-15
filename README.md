@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Semantic Field Science
 
-## Getting Started
+🔬 **Measuring the distance between narrative and reality.**
 
-First, run the development server:
+Framework fundacional para observar la dinámica del significado humano (MCSH) y su aplicación al riesgo sistémico global.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌐 Live
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**[semanticfieldscience.org](https://www.semanticfieldscience.org)**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Systemic Fragility Observatory
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Monitor público de fragilidad sistémica global. Modelo Markov de 7 estados + simulación Monte Carlo (n=10.000) + 10 indicadores no convencionales que ningún dashboard institucional publica.
 
-## Learn More
+| Métrica        | Valor                       | Estado  |
+| -------------- | --------------------------- | ------- |
+| α (fragilidad) | **0.776**                   | Crítico |
+| Estado         | **S1′** — Burbuja Sintética | Activo  |
+| T_med (S3)     | **3.1 meses**               | Alerta  |
+| P(S2+ 12m)     | **72.7%**                   | Crítico |
 
-To learn more about Next.js, take a look at the following resources:
+## Caso de Estudio
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Burbuja Sintética: Caso de Estudio sobre Fragilidad Sistémica Global (Feb 2026)**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Análisis técnico completo con modelo Markov, Monte Carlo, 10 indicadores no convencionales, micro-fisuras activas y ventana de convergencia mayo 2026.
 
-## Deploy on Vercel
+📊 [Descargar PDF](https://www.semanticfieldscience.org/docs/Burbuja_Sintetica_Caso_Estudio.pdf)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Productos del ecosistema
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **[SPE Audit](https://speaudit.com)** — Integridad forense de cualquier archivo. Cápsulas Forenses criptográficas. Patente en curso.
+- **[SPE Trace](https://spetrace.com)** — Realidad semántica para empresas. D(t) = |S(t) − R(t)|. Patente en curso.
+
+## Stack
+
+- Next.js 14 (App Router)
+- TypeScript
+- Tailwind CSS
+- Deployed on Vercel
+
+## Autor
+
+**Rubén Abella** — Investigación independiente en dinámica del significado, auditoría de IA y fragilidad sistémica.
+
+- [LinkedIn](https://www.linkedin.com/in/rubénabella/)
+- contact@semanticfieldscience.org
+
+## Keywords
+
+`riesgo sistémico 2026` · `burbuja financiera 2026` · `fragilidad sistema financiero global` · `crisis financiera cuando` · `modelo Markov riesgo sistémico` · `indicadores crisis financiera no convencionales` · `burbuja sintética economía` · `systemic risk 2026` · `financial bubble 2026`
+
+---
+
+_Este repositorio es público. El contenido puede ser compartido, citado y debatido libremente._
+
+_© 2026 Semantic Field Science_
