@@ -95,26 +95,37 @@ body {
   animation: pulse-dot 2s ease-in-out infinite;
 }
 
-/* Glow effect for active state */
+/* Glow effect — RED CTA (heartbeat pulse) */
 @keyframes glow-red {
-  0%,
-  100% {
-    box-shadow:
-      0 0 5px rgba(230, 57, 70, 0.3),
-      0 0 20px rgba(230, 57, 70, 0.1);
+  0%, 100% {
+    box-shadow: 0 0 2px rgba(255, 26, 26, 0.05);
+    border-color: rgba(255, 26, 26, 0.4);
   }
   50% {
-    box-shadow:
-      0 0 10px rgba(230, 57, 70, 0.5),
-      0 0 40px rgba(230, 57, 70, 0.2);
+    box-shadow: 0 0 12px rgba(255, 26, 26, 0.25);
+    border-color: rgba(255, 26, 26, 0.8);
   }
 }
 
 .animate-glow-red {
-  animation: glow-red 3s ease-in-out infinite;
+  animation: glow-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Section divider */
+/* Glow effect — ELECTRIC BLUE CTA (heartbeat pulse) */
+@keyframes glow-blue {
+  0%, 100% {
+    box-shadow: 0 0 2px rgba(0, 180, 255, 0.05);
+    border-color: rgba(0, 180, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(0, 180, 255, 0.25);
+    border-color: rgba(0, 180, 255, 0.8);
+  }
+}
+
+.animate-glow-blue {
+  animation: glow-blue 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
 .section-divider {
   border-top: 1px solid var(--border-color);
 }

@@ -33,7 +33,8 @@ const config: Config = {
       animation: {
         'pulse-live': 'pulse-live 2s ease-in-out infinite',
         'pulse-dot': 'pulse-dot 2s ease-in-out infinite',
-        'glow-red': 'glow-red 3s ease-in-out infinite',
+        'glow-red': 'glow-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'glow-blue': 'glow-blue 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },

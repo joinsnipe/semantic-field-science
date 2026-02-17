@@ -243,6 +243,7 @@ export default function HomeContent() {
               icon="📄"
               title={t('docs.fund.title')}
               subtitle="MCSH v1.0 · PDF"
+              variant="blue"
             />
             <DownloadCard
               href="/docs/Burbuja_Sintetica_Caso_Estudio.pdf"
