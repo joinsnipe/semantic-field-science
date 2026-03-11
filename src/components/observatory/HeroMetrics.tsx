@@ -110,7 +110,7 @@ export default function HeroMetrics() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="hidden md:block text-[11px] text-obs-text-secondary/40 font-mono"
           >
-            P(crisis 12m) = 81% · 11 mar 2026
+            P(crisis 12m desde 11 mar 2026) = 81%
           </motion.p>
         </div>
 

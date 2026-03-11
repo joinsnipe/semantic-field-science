@@ -19,7 +19,7 @@ function useSidebarMetrics() {
     { label: 'α', value: '0.821', status: 'critical' },
     { label: en ? 'State' : 'Estado', value: "S1'→S2", status: 'critical' },
     { label: 'T_med', value: '2.5m', status: 'critical' },
-    { label: 'P(S2+ 12m)', value: '81%', status: 'critical' },
+    { label: 'P(S2+ 12m)*', value: '81%', status: 'critical' },
     { label: 'PNR', value: '91%', status: 'critical' },
   ];
 }
@@ -98,6 +98,9 @@ export default function ObservatoryLayout({
               </div>
             ))}
           </div>
+          <p className="px-3 mt-2 text-[8px] font-mono text-obs-text-secondary/20 leading-relaxed">
+            * 12m desde 11 mar 2026
+          </p>
         </div>
 
         {/* Lang + Footer */}
