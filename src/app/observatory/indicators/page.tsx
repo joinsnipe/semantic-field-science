@@ -37,14 +37,14 @@ const indicatorDetails: Record<number, { magnitude: string; mechanism: string; h
     historical: 'Cuando sostener narrativa requiere esfuerzo creciente y cambios metodológicos → D(t) ha crecido tanto que mantenerla consume energía institucional extraordinaria.',
   },
   6: {
-    magnitude: 'Pico SRF $29.4B oct 2025 (mayor desde dot-com). Límite $500B eliminado dic 2025. Backstop institucionalizado sin techo.',
-    mechanism: 'Septiembre 2019: tipos repo al 10% intraday cuando Fed tardó horas. El plumbing financiero global está en mantenimiento artificial permanente.',
+    magnitude: 'SRF alcanzó $74.6B el 31 dic 2025 (récord absoluto, +48% vs $50.35B oct). Fed eliminó límite diario SRF en nov 2025 (dependencia estructural sin techo).',
+    mechanism: 'Septiembre 2019: tipos repo al 10% intraday cuando Fed tardó horas. El plumbing financiero global está en mantenimiento artificial permanente. Uso SRF en niveles críticos durante volatilidad 3-7 mar 2026.',
     historical: 'Desde 2019-sep no ha habido un solo periodo de 60 días donde el repo opere autónomamente sin backstop permanente del banco central.',
   },
   7: {
-    magnitude: 'Friend-shoring acelerado. Controles exportación semiconductores expandidos. Erosión tratados cooperación (New START, INF terminados).',
-    mechanism: 'En 2008 y 2020, coordinación entre bancos centrales fue factor crítico de contención. Esa capacidad está estructuralmente reducida en 2026.',
-    historical: 'Mayor probabilidad de errores de cálculo y menor capacidad de respuesta coordinada ante crisis global.',
+    magnitude: 'Guerra total USA-Israel vs Irán desde 28 feb 2026. Estrecho de Hormuz cerrado (20% petróleo global offline). Qatar gas fuerza mayor (20% GNL). Rusia-Ucrania año 5. China-Taiwán tensión máxima.',
+    mechanism: 'En 2008 y 2020, coordinación entre bancos centrales fue factor crítico de contención. Esa capacidad está severamente comprometida en 2026. Sin precedente desde 1945.',
+    historical: 'Mayor probabilidad de errores de cálculo y menor capacidad de respuesta coordinada ante crisis global. Coordinación bancos centrales: no operativa.',
   },
   8: {
     magnitude: 'Bonos/acciones correlación POSITIVA. Gold/yields desacoplado. Crypto/tech correlación >0.85. PCA: PC1 explica >74% varianza de TODOS los activos.',
@@ -84,7 +84,10 @@ export default function IndicatorsPage() {
           Todos son del núcleo del sistema financiero global. Ninguno tiene un índice oficial publicado regularmente. Todos señalan en la misma dirección.
         </p>
         <p className="text-sm text-obs-text-secondary/50 font-mono mb-16">
-          Promedio ponderado: <span className="text-obs-red font-bold">74.8%</span> · Convergente con α = 0.776
+          Promedio ponderado: <span className="text-obs-red font-bold">80.5%</span>
+          <span className="text-obs-text-secondary/30 mx-2">←</span>
+          <span className="text-obs-text-secondary/30 line-through">74.8%</span>
+          <span className="text-obs-text-secondary/30 ml-2">· Convergente con α = 0.821 (anterior: 0.776) · 11 mar 2026</span>
         </p>
 
         {/* Indicators detail list */}
@@ -110,12 +113,20 @@ export default function IndicatorsPage() {
                     </h2>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span
-                      className="font-mono text-lg font-bold"
-                      style={{ color }}
-                    >
-                      {indicator.probability}%
-                    </span>
+                    <div className="flex items-baseline gap-2">
+                      <span
+                        className="font-mono text-lg font-bold"
+                        style={{ color }}
+                      >
+                        {indicator.probability}%
+                      </span>
+                      {indicator.previousProbability != null && (
+                        <span className="text-[11px] font-mono text-obs-text-secondary/30">
+                          ← <span className="line-through">{indicator.previousProbability}%</span>
+                          <span className="text-obs-red/60 ml-1">+{indicator.probability - indicator.previousProbability}pp</span>
+                        </span>
+                      )}
+                    </div>
                     <span className="text-[10px] text-obs-text-secondary/40 font-mono">
                       peso: {indicator.weight}%
                     </span>
