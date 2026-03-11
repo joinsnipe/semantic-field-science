@@ -80,13 +80,15 @@ export default function MethodologyPage() {
                   <div>
                     <span className="text-obs-red font-bold">Burbuja Sintética</span>
                     <span className="text-obs-text-secondary/60 ml-2">— ESTADO ACTUAL. Fragilidad explosiva bajo contención artificial</span>
+                    <span className="block text-[10px] font-mono text-obs-red/50 mt-1">Transición activa S1&apos;→S2 desde 28 feb 2026 (guerra USA-Israel vs Irán)</span>
                   </div>
                 </div>
-                <div className="flex items-start gap-3 py-2 border-b border-obs-border">
-                  <span className="text-obs-text-secondary/40 w-8">S2</span>
+                <div className="flex items-start gap-3 py-2 border-b border-obs-border bg-obs-red/[0.03] -mx-2 px-2 rounded border-l-2 border-l-obs-red/40">
+                  <span className="text-obs-red/70 w-8 font-bold">S2</span>
                   <div>
-                    <span className="text-obs-text">Crisis sistémica</span>
-                    <span className="text-obs-text-secondary/40 ml-2">— Fallos múltiples, contagio activo, VIX {'>'}30</span>
+                    <span className="text-obs-red/70 font-bold">Crisis sistémica</span>
+                    <span className="text-obs-text-secondary/50 ml-2">— Fallos múltiples, contagio activo, VIX {'>'}30</span>
+                    <span className="block text-[10px] font-mono text-obs-red/40 mt-1">APROXIMÁNDOSE · P(S2+ 3m)=82.4% · VIX alcanzó 35.30 (3-7 mar) · PNR 91%</span>
                   </div>
                 </div>
                 <div className="flex items-start gap-3 py-2 border-b border-obs-border">
@@ -117,7 +119,10 @@ export default function MethodologyPage() {
                 <p className="text-obs-text-secondary mb-2">Función de mapeo logístico:</p>
                 <p className="text-obs-text">α = 1 / (1 + e<sup>-k·(Ī - θ)</sup>)</p>
                 <p className="text-obs-text-secondary/50 mt-2">θ = 0.50 (umbral neutral) · k = 5.0 (sensibilidad)</p>
-                <p className="text-obs-text-secondary/50">Para Ī = 0.748 → α = <span className="text-obs-red">0.776</span></p>
+                <div className="mt-3 pt-3 border-t border-obs-border/50 space-y-1">
+                  <p className="text-obs-text-secondary/40">Baseline 7 feb 2026: Ī = 0.748 → α = <span className="text-obs-text-secondary/50">0.776</span></p>
+                  <p className="text-obs-text">Actual 11 mar 2026: Ī = 0.805 → α = <span className="text-obs-red font-bold">0.821</span> <span className="text-obs-red/50">(+5.8%)</span></p>
+                </div>
               </div>
             </div>
           </section>
@@ -152,6 +157,7 @@ export default function MethodologyPage() {
                       <th className="py-3 px-2 text-left">α</th>
                       <th className="py-3 px-2 text-left">T_med</th>
                       <th className="py-3 px-2 text-left">P(S3+ 12m)</th>
+                      <th className="py-3 px-2 text-left">Estado</th>
                     </tr>
                   </thead>
                   <tbody className="text-obs-text-secondary">
@@ -160,27 +166,41 @@ export default function MethodologyPage() {
                       <td className="py-2.5 px-2">0.55</td>
                       <td className="py-2.5 px-2">~8m</td>
                       <td className="py-2.5 px-2">~41%</td>
+                      <td className="py-2.5 px-2 text-obs-text-secondary/40">—</td>
                     </tr>
                     <tr className="border-b border-obs-border/50">
                       <td className="py-2.5 px-2">Conservador</td>
                       <td className="py-2.5 px-2">0.65</td>
                       <td className="py-2.5 px-2">~5m</td>
                       <td className="py-2.5 px-2">~57%</td>
+                      <td className="py-2.5 px-2 text-obs-text-secondary/40">—</td>
+                    </tr>
+                    <tr className="border-b border-obs-border/50">
+                      <td className="py-2.5 px-2">Base (7 feb 2026)</td>
+                      <td className="py-2.5 px-2">0.776</td>
+                      <td className="py-2.5 px-2">3.1m</td>
+                      <td className="py-2.5 px-2">50.1%</td>
+                      <td className="py-2.5 px-2 text-obs-text-secondary/30">t₀ baseline</td>
                     </tr>
                     <tr className="border-b border-obs-border/50 bg-obs-red/5">
-                      <td className="py-2.5 px-2 text-obs-red font-bold">Base</td>
-                      <td className="py-2.5 px-2 text-obs-red font-bold">0.75</td>
-                      <td className="py-2.5 px-2 text-obs-red font-bold">~3m</td>
-                      <td className="py-2.5 px-2 text-obs-red font-bold">72.7%</td>
+                      <td className="py-2.5 px-2 text-obs-red font-bold">Actual (11 mar 2026)</td>
+                      <td className="py-2.5 px-2 text-obs-red font-bold">0.821</td>
+                      <td className="py-2.5 px-2 text-obs-red font-bold">2.5m</td>
+                      <td className="py-2.5 px-2 text-obs-red font-bold">63.1%</td>
+                      <td className="py-2.5 px-2 text-obs-red font-bold">S1&apos;→S2</td>
                     </tr>
                     <tr>
                       <td className="py-2.5 px-2">Pesimista</td>
                       <td className="py-2.5 px-2">0.85</td>
                       <td className="py-2.5 px-2">{'<'}2m</td>
                       <td className="py-2.5 px-2">~88%</td>
+                      <td className="py-2.5 px-2 text-obs-text-secondary/40">—</td>
                     </tr>
                   </tbody>
                 </table>
+                <p className="mt-3 text-[10px] font-mono text-obs-text-secondary/25">
+                  α actual (0.821) entre escenarios Base y Pesimista — acercándose al peor caso
+                </p>
               </div>
             </div>
           </section>
@@ -225,31 +245,42 @@ export default function MethodologyPage() {
                   <thead>
                     <tr className="text-obs-text-secondary/50 text-xs font-mono border-b border-obs-border">
                       <th className="py-3 px-2 text-left">Dimensión</th>
-                      <th className="py-3 px-2 text-left">Confianza</th>
+                      <th className="py-3 px-2 text-left">Feb 2026</th>
+                      <th className="py-3 px-2 text-left">Mar 2026</th>
+                      <th className="py-3 px-2 text-left">Razón del cambio</th>
                     </tr>
                   </thead>
                   <tbody className="text-obs-text-secondary">
                     <tr className="border-b border-obs-border/50">
                       <td className="py-2.5 px-2">Dirección del riesgo</td>
                       <td className="py-2.5 px-2"><span className="text-obs-red font-bold font-mono">ALTA</span></td>
+                      <td className="py-2.5 px-2"><span className="text-obs-red font-bold font-mono">ALTA</span></td>
+                      <td className="py-2.5 px-2 text-xs text-obs-text-secondary/40">Sin cambio — todos los indicadores al alza</td>
                     </tr>
                     <tr className="border-b border-obs-border/50">
                       <td className="py-2.5 px-2">Magnitud ({'>'}70% en 12-18m)</td>
                       <td className="py-2.5 px-2"><span className="text-obs-red font-bold font-mono">ALTA</span></td>
+                      <td className="py-2.5 px-2"><span className="text-obs-red font-bold font-mono">ALTA</span></td>
+                      <td className="py-2.5 px-2 text-xs text-obs-text-secondary/40">P(S2+ 12m) subió 72.7%→81%</td>
                     </tr>
                     <tr className="border-b border-obs-border/50">
                       <td className="py-2.5 px-2">Timing (Q2-Q4 2026)</td>
                       <td className="py-2.5 px-2"><span className="text-[#f4a261] font-bold font-mono">MEDIA</span></td>
+                      <td className="py-2.5 px-2"><span className="text-obs-red font-bold font-mono">MEDIA-ALTA</span></td>
+                      <td className="py-2.5 px-2 text-xs text-obs-text-secondary/40">T_med comprimido 3.1m→2.5m · VIX tocó 35.30</td>
                     </tr>
-                    <tr>
+                    <tr className="border-b border-obs-border/50 bg-obs-red/5">
                       <td className="py-2.5 px-2">Trigger específico</td>
                       <td className="py-2.5 px-2"><span className="text-obs-text-secondary/50 font-bold font-mono">BAJA</span></td>
+                      <td className="py-2.5 px-2"><span className="text-[#f4a261] font-bold font-mono">MEDIA-ALTA</span></td>
+                      <td className="py-2.5 px-2 text-xs text-obs-red/60">Guerra USA-Israel vs Irán materializada 28 feb</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <p className="mt-4 text-xs text-obs-text-secondary/40 font-mono">
-                Confianza global: 70-75%
+                Confianza global: <span className="text-obs-text-secondary/30 line-through">70-75%</span> → <span className="text-obs-red font-bold">78-82%</span>
+                <span className="text-obs-text-secondary/25 ml-2">· Ponderado por materialización parcial de trigger y aceleración de α</span>
               </p>
             </div>
           </section>
