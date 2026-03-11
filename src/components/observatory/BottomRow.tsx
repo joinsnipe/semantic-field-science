@@ -60,6 +60,11 @@ export default function BottomRow() {
                     <span className="font-mono text-[10px] text-obs-text-secondary/40 w-7 text-right">
                       {fissure.contagionProbability}%
                     </span>
+                    {fissure.previousContagionProbability != null && (
+                      <span className="text-[8px] font-mono text-obs-red/40">
+                        ↑{fissure.contagionProbability - fissure.previousContagionProbability}
+                      </span>
+                    )}
                   </div>
                 </motion.div>
               );

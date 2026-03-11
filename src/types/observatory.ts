@@ -23,6 +23,7 @@ export interface Indicator {
   id: number;
   name: string;
   probability: number; // 0-100
+  previousProbability?: number; // Previous reading for comparison
   source: string;
   lastUpdated: string;
   description: string;
@@ -71,7 +72,9 @@ export interface PNRCondition {
 export interface MicroFissure {
   name: string;
   severity: SeverityLevel;
+  previousSeverity?: SeverityLevel;
   contagionProbability: number;
+  previousContagionProbability?: number;
   description: string;
 }
 

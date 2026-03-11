@@ -19,7 +19,14 @@ import {
   Area,
   Legend,
 } from 'recharts';
-import { phaseTrajectory, currentPhasePoint, probabilityTimeline } from '@/lib/observatory-data';
+import { phaseTrajectory, currentPhasePoint, probabilityTimeline, feb2026ProbabilityTimeline } from '@/lib/observatory-data';
+
+// Merge current + feb data for chart
+const mergedProbData = probabilityTimeline.map((d, i) => ({
+  ...d,
+  febS2Plus: feb2026ProbabilityTimeline[i]?.pS2Plus,
+  febS3Plus: feb2026ProbabilityTimeline[i]?.pS3Plus,
+}));
 
 // Phase space tooltip
 function PhaseTooltip({ active, payload }: { active?: boolean; payload?: Array<{ payload: { d: number; v: number; month?: string } }> }) {
@@ -138,7 +145,7 @@ export default function ChartsRow() {
           </div>
 
           <ResponsiveContainer width="100%" height={280}>
-            <AreaChart data={probabilityTimeline} margin={{ top: 10, right: 10, bottom: 25, left: 5 }}>
+            <AreaChart data={mergedProbData} margin={{ top: 10, right: 10, bottom: 25, left: 5 }}>
               <defs>
                 <linearGradient id="gradS2" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#e63946" stopOpacity={0.15} />
@@ -176,6 +183,15 @@ export default function ChartsRow() {
                 dot={{ fill: '#457b9d', r: 2.5, stroke: '#457b9d' }}
                 activeDot={{ r: 4, stroke: '#457b9d', strokeWidth: 1, fill: '#0a0a0f' }}
               />
+              {/* Feb 2026 ghost lines */}
+              <Area type="monotone" dataKey="febS2Plus" name="S2+ Feb" stroke="#e63946" strokeWidth={1} strokeDasharray="4 3" fill="none"
+                dot={false} legendType="none"
+                strokeOpacity={0.25}
+              />
+              <Area type="monotone" dataKey="febS3Plus" name="S3+ Feb" stroke="#457b9d" strokeWidth={1} strokeDasharray="4 3" fill="none"
+                dot={false} legendType="none"
+                strokeOpacity={0.25}
+              />
             </AreaChart>
           </ResponsiveContainer>
 
@@ -192,6 +208,12 @@ export default function ChartsRow() {
                 <div className="text-[8px] text-obs-text-secondary/25 font-mono">{s.l}</div>
               </div>
             ))}
+          </div>
+
+          {/* Before/after legend */}
+          <div className="flex items-center justify-center gap-4 mt-2 text-[8px] font-mono text-obs-text-secondary/25">
+            <span>━━ Mar 2026 (actual)</span>
+            <span>╌╌ Feb 2026 (baseline)</span>
           </div>
         </motion.div>
       </div>

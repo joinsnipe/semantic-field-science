@@ -147,6 +147,7 @@ export const indicators: Indicator[] = [
     id: 2,
     name: 'Gamma Squeeze Risk',
     probability: 86,                           // 82 → 86 (11 mar 2026)
+    previousProbability: 82,
     source: 'CBOE / OCC (lag 2 semanas)',
     lastUpdated: '11 mar 2026',
     description:
@@ -157,6 +158,7 @@ export const indicators: Indicator[] = [
     id: 3,
     name: 'Liquidity Illusion Index',
     probability: 84,                           // 80 → 84 (11 mar 2026)
+    previousProbability: 80,
     source: 'Refinitiv / TRACE',
     lastUpdated: '11 mar 2026',
     description:
@@ -177,6 +179,7 @@ export const indicators: Indicator[] = [
     id: 5,
     name: 'Narrative Desperation Index',
     probability: 81,                           // 77 → 81 (11 mar 2026)
+    previousProbability: 77,
     source: 'FOMC Minutes / Comunicaciones oficiales',
     lastUpdated: '11 mar 2026',
     description:
@@ -187,6 +190,7 @@ export const indicators: Indicator[] = [
     id: 6,
     name: 'Repo Market Fragility',
     probability: 79,                           // 75 → 79 (11 mar 2026)
+    previousProbability: 75,
     source: 'Fed H.4.1 / FOMC / SRF',
     lastUpdated: '11 mar 2026',
     description:
@@ -197,6 +201,7 @@ export const indicators: Indicator[] = [
     id: 7,
     name: 'Geopolitical Fragmentation',
     probability: 91,                           // 73 → 91 (11 mar 2026) ← MAYOR CAMBIO
+    previousProbability: 73,
     source: 'Eventos geopolíticos / KOF',
     lastUpdated: '11 mar 2026',
     description:
@@ -207,6 +212,7 @@ export const indicators: Indicator[] = [
     id: 8,
     name: 'Cross-Asset Correlation Breakdown',
     probability: 77,                           // 71 → 77 (11 mar 2026)
+    previousProbability: 71,
     source: 'Bloomberg',
     lastUpdated: '11 mar 2026',
     description:
@@ -260,6 +266,16 @@ export const probabilityTimeline: ProbabilityDataPoint[] = [
   { month: 12, label: '12m', pS2Plus: 74.2, pS3Plus: 60.8 },
   { month: 18, label: '18m', pS2Plus: 76.9, pS3Plus: 65.3 },
   { month: 24, label: '24m', pS2Plus: 80.5, pS3Plus: 70.2 },
+];
+
+// Baseline feb 2026 (α=0.776) — para línea fantasma comparativa en gráfico
+export const feb2026ProbabilityTimeline: ProbabilityDataPoint[] = [
+  { month: 3, label: '3m', pS2Plus: 73.9, pS3Plus: 52.8 },
+  { month: 6, label: '6m', pS2Plus: 65.2, pS3Plus: 49.5 },
+  { month: 9, label: '9m', pS2Plus: 62.5, pS3Plus: 48.7 },
+  { month: 12, label: '12m', pS2Plus: 62.7, pS3Plus: 50.1 },
+  { month: 18, label: '18m', pS2Plus: 65.4, pS3Plus: 54.4 },
+  { month: 24, label: '24m', pS2Plus: 68.8, pS3Plus: 59.1 },
 ];
 
 // ─── CRITICAL WINDOW ────────────────────────────────────────────
@@ -344,6 +360,7 @@ export const pnrConditions: PNRCondition[] = [
 ];
 
 export const pnrProgress = 91;   // era 78% → 91% (3 de 4 condiciones EXCEEDED)
+export const previousPnrProgress = 78;
 
 // ─── MICRO-FISSURES ─────────────────────────────────────────────
 // Actualizado 11 mar 2026: 3 fisuras agravadas + 1 nueva (Energy Sector)
@@ -354,18 +371,22 @@ export const microFissures: MicroFissure[] = [
     contagionProbability: 85,
     description:
       'Estrecho de Hormuz cerrado indefinidamente. 20% petróleo global offline. Qatar gas fuerza mayor (20% GNL). Petróleo +50% en 10 días ($67→$97-104). Gasolina USA +$0.51/gal en 7 días. Cascada: energía → transporte → manufactura → consumo.',
+    // NUEVA — sin previousContagionProbability
   },
   {
     name: 'CRE Collapse',
     severity: 'CRITICAL',
     contagionProbability: 82,            // era 78 → 82 (shock energético agrava costes)
+    previousContagionProbability: 78,
     description:
       'Oficinas vacancy 26% nacional. CMBS delinquencies 8%. REITs suspendiendo redemptions. Shock energético (+50% petróleo) aumenta costes operativos. Recesión inducida por guerra reduce demanda.',
   },
   {
     name: 'Regional Banks',
     severity: 'CRITICAL',               // era HIGH → CRITICAL
+    previousSeverity: 'HIGH',
     contagionProbability: 78,            // era 65 → 78 (stress renovado post-guerra)
+    previousContagionProbability: 65,
     description:
       'Pérdidas no realizadas HTM >$500B. Depósitos no asegurados en fuga continua. Shock energético + guerra renueva stress de liquidez. Depósitos acelerando salida post-28 feb.',
   },
@@ -373,6 +394,7 @@ export const microFissures: MicroFissure[] = [
     name: 'Leveraged Loans',
     severity: 'HIGH',
     contagionProbability: 75,            // era 70 → 75
+    previousContagionProbability: 70,
     description:
       'Defaults >3% anual. CLO AAA spreads +50bps. $1.4T outstanding interconectado. Tipos altos + recesión inducida por guerra = repricing masivo inminente. Spreads CLO BB+ ampliándose.',
   },

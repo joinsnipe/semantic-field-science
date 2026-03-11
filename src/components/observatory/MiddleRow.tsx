@@ -7,6 +7,7 @@ import {
   historicalComparisons,
   pnrConditions,
   pnrProgress,
+  previousPnrProgress,
 } from '@/lib/observatory-data';
 
 function StatusBadge({ status }: { status: string }) {
@@ -92,7 +93,10 @@ export default function MiddleRow() {
               <h2 className="text-xs font-semibold text-white">PNR</h2>
               <span className="text-[9px] font-mono text-obs-text-secondary/30">Point of No Return</span>
             </div>
-            <span className="font-mono text-sm font-bold text-white">{pnrProgress}%</span>
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-mono text-sm font-bold text-white">{pnrProgress}%</span>
+              <span className="text-[9px] font-mono text-obs-red/50">↑{previousPnrProgress}%</span>
+            </div>
           </div>
 
           {/* Progress bar */}

@@ -43,10 +43,17 @@ function IndicatorRow({
         />
       </div>
 
-      {/* Value */}
-      <span className="font-mono text-xs font-semibold text-white w-10 text-right flex-shrink-0">
-        {indicator.probability}%
-      </span>
+      {/* Value + Delta */}
+      <div className="flex items-baseline gap-1.5 flex-shrink-0">
+        <span className="font-mono text-xs font-semibold text-white w-10 text-right">
+          {indicator.probability}%
+        </span>
+        {indicator.previousProbability != null && (
+          <span className="text-[9px] font-mono text-obs-red/50">
+            ↑{indicator.probability - indicator.previousProbability}
+          </span>
+        )}
+      </div>
     </motion.div>
   );
 }
