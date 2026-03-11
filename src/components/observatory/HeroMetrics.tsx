@@ -78,7 +78,7 @@ export default function HeroMetrics() {
               </span>
               <span className="text-obs-text-secondary/20 hidden sm:inline">|</span>
               <span className="text-obs-text-secondary/40">
-                P(S2+ may&apos;26): <span className="text-obs-text-secondary/60">{latestUpdate.previous.pCrisis}</span>
+                P(S2+ 12m): <span className="text-obs-text-secondary/60">{latestUpdate.previous.pCrisis}</span>
                 <span className="text-obs-red mx-1">→</span>
                 <span className="text-white font-bold">{latestUpdate.current.pCrisis}</span>
               </span>
@@ -110,7 +110,7 @@ export default function HeroMetrics() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="hidden md:block text-[11px] text-obs-text-secondary/40 font-mono"
           >
-            P(S2+ ventana mayo 2026) = 80%
+            P(S2+ 12m) = 81% · 11 mar 2026
           </motion.p>
         </div>
 

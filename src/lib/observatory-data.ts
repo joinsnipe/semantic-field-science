@@ -29,8 +29,8 @@ export const latestUpdate: ProtocolUpdate = {
     'Guerra USA-Israel vs Irán · Estrecho de Hormuz cerrado · 20% petróleo global offline',
   diagnosis: 'ACELERACIÓN CRÍTICA — Transición activa S1′ → S2',
   state: "S1' → S2",
-  previous: { alpha: '0.776', tMed: '3.1m', pCrisis: '73.9%', avgIndicators: '74.8%' },
-  current: { alpha: '0.821', tMed: '2.5m', pCrisis: '80%', avgIndicators: '80.5%' },
+  previous: { alpha: '0.776', tMed: '3.1m', pCrisis: '72.7%', avgIndicators: '74.8%' },
+  current: { alpha: '0.821', tMed: '2.5m', pCrisis: '81%', avgIndicators: '80.5%' },
 };
 
 // ─── HERO METRICS ───────────────────────────────────────────────
