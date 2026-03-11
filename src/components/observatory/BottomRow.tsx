@@ -99,14 +99,18 @@ export default function BottomRow() {
           </div>
 
           {/* Diagnosis box */}
-          <div className="bg-obs-bg rounded-md p-3 border border-obs-border/50">
-            <p className="text-[9px] font-mono text-obs-text-secondary/30 uppercase tracking-wider mb-2">
-              Diagnóstico
-            </p>
+          <div className="bg-obs-bg rounded-md p-3 border border-obs-red/20">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-obs-red animate-pulse-dot" />
+              <p className="text-[9px] font-mono text-obs-red/60 uppercase tracking-wider">
+                Diagnóstico · 11 mar 2026
+              </p>
+            </div>
             <div className="space-y-1.5 text-[10px] font-mono text-obs-text-secondary/50 leading-relaxed">
-              <p><span className="text-white/80">α {'>'} 0.7</span> → sistema en zona de fragilidad alta</p>
+              <p><span className="text-white/80">α = 0.821 {'>'} 0.7</span> → zona de fragilidad alta confirmada</p>
               <p><span className="text-white/80">T_med {'<'} T_mean</span> → distribución asimétrica a la izquierda</p>
-              <p><span className="text-white/80">Conclusión:</span> el colapso no es improbable, es el <span className="text-white">escenario modal</span></p>
+              <p><span className="text-white/80">α↑ + T_med↓</span> → <span className="text-obs-red">ACELERACIÓN CRÍTICA</span></p>
+              <p><span className="text-white/80">Conclusión:</span> transición S1′ → S2 <span className="text-white">activa</span>. Guerra 28 feb materializó fragilidad predicha.</p>
             </div>
           </div>
 

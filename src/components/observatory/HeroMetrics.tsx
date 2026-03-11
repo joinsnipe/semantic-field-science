@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { heroMetrics } from '@/lib/observatory-data';
+import { heroMetrics, latestUpdate } from '@/lib/observatory-data';
 
 function AnimatedNumber({ value, duration = 2000 }: { value: string; duration?: number }) {
   const [displayValue, setDisplayValue] = useState('0');
@@ -45,6 +45,50 @@ export default function HeroMetrics() {
   return (
     <section className="relative pt-8 pb-10 px-6">
       <div className="max-w-full">
+        {/* ━━━ PROTOCOL UPDATE BANNER (11 MAR 2026) ━━━ */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-6 bg-obs-red/[0.06] border border-obs-red/20 rounded-lg px-4 py-3"
+        >
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-obs-red animate-pulse-dot" />
+                <span className="text-[9px] font-mono font-bold tracking-wider text-obs-red uppercase">
+                  Actualización
+                </span>
+              </div>
+              <span className="text-xs font-mono text-obs-text-secondary/60">
+                {latestUpdate.date} · +{latestUpdate.daysSinceT0}d desde t₀
+              </span>
+            </div>
+            <div className="flex flex-wrap items-center gap-3 text-[10px] font-mono">
+              <span className="text-obs-text-secondary/40">
+                α: <span className="text-obs-text-secondary/60">{latestUpdate.previous.alpha}</span>
+                <span className="text-obs-red mx-1">→</span>
+                <span className="text-white font-bold">{latestUpdate.current.alpha}</span>
+              </span>
+              <span className="text-obs-text-secondary/20 hidden sm:inline">|</span>
+              <span className="text-obs-text-secondary/40">
+                T_med: <span className="text-obs-text-secondary/60">{latestUpdate.previous.tMed}</span>
+                <span className="text-obs-red mx-1">→</span>
+                <span className="text-white font-bold">{latestUpdate.current.tMed}</span>
+              </span>
+              <span className="text-obs-text-secondary/20 hidden sm:inline">|</span>
+              <span className="text-obs-text-secondary/40">
+                P(crisis): <span className="text-obs-text-secondary/60">{latestUpdate.previous.pCrisis}</span>
+                <span className="text-obs-red mx-1">→</span>
+                <span className="text-white font-bold">{latestUpdate.current.pCrisis}</span>
+              </span>
+            </div>
+          </div>
+          <p className="text-[10px] text-obs-text-secondary/50 mt-2 leading-relaxed">
+            {latestUpdate.triggerEvent}
+          </p>
+        </motion.div>
+
         {/* Compact header row */}
         <div className="flex items-baseline justify-between mb-6">
           <motion.div
@@ -66,7 +110,7 @@ export default function HeroMetrics() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="hidden md:block text-[11px] text-obs-text-secondary/40 font-mono"
           >
-            P(crisis 12m) = 72.7% · 7 feb 2026
+            P(crisis 12m) = 81% · 11 mar 2026
           </motion.p>
         </div>
 
@@ -88,13 +132,15 @@ export default function HeroMetrics() {
                   <span
                     className="text-[9px] font-mono font-bold tracking-wider px-2 py-0.5 rounded"
                     style={{
-                      backgroundColor: metric.label.includes('CRÍTICO') || metric.badge === 'CRÍTICO'
-                        ? 'rgba(230, 57, 70, 0.12)'
-                        : 'rgba(168, 218, 220, 0.08)',
-                      color: metric.badge === 'CRÍTICO'
+                      backgroundColor: metric.badge === 'TRANSICIÓN'
+                        ? 'rgba(230, 57, 70, 0.15)'
+                        : metric.badge === 'CRÍTICO'
+                          ? 'rgba(230, 57, 70, 0.12)'
+                          : 'rgba(168, 218, 220, 0.08)',
+                      color: metric.badge === 'CRÍTICO' || metric.badge === 'TRANSICIÓN'
                         ? '#e63946'
                         : '#a8dadc',
-                      border: `1px solid ${metric.badge === 'CRÍTICO' ? 'rgba(230, 57, 70, 0.25)' : 'rgba(168, 218, 220, 0.15)'}`,
+                      border: `1px solid ${metric.badge === 'CRÍTICO' || metric.badge === 'TRANSICIÓN' ? 'rgba(230, 57, 70, 0.25)' : 'rgba(168, 218, 220, 0.15)'}`,
                     }}
                   >
                     {metric.badge}

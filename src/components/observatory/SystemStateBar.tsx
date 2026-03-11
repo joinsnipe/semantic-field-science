@@ -35,9 +35,11 @@ export default function SystemStateBar() {
                   flex-shrink-0 rounded-md px-3 py-2 text-center transition-all duration-300 min-w-[60px]
                   ${state.isActive
                     ? 'bg-white/10 border border-white/30'
-                    : state.isPast
-                      ? 'bg-obs-card/30 border border-transparent'
-                      : 'bg-obs-card/50 border border-obs-border/50'
+                    : state.isApproaching
+                      ? 'bg-obs-red/[0.06] border border-obs-red/30 animate-pulse-live'
+                      : state.isPast
+                        ? 'bg-obs-card/30 border border-transparent'
+                        : 'bg-obs-card/50 border border-obs-border/50'
                   }
                 `}
               >
@@ -45,9 +47,11 @@ export default function SystemStateBar() {
                   className={`font-mono font-bold text-xs ${
                     state.isActive
                       ? 'text-white'
-                      : state.isPast
-                        ? 'text-obs-text-secondary/30'
-                        : 'text-obs-text-secondary/50'
+                      : state.isApproaching
+                        ? 'text-obs-red'
+                        : state.isPast
+                          ? 'text-obs-text-secondary/30'
+                          : 'text-obs-text-secondary/50'
                   }`}
                 >
                   {state.shortName}
@@ -55,6 +59,11 @@ export default function SystemStateBar() {
                 {state.isActive && (
                   <div className="flex justify-center mt-1">
                     <div className="w-1.5 h-1.5 rounded-full bg-obs-red animate-pulse-dot" />
+                  </div>
+                )}
+                {state.isApproaching && (
+                  <div className="flex justify-center mt-1">
+                    <div className="w-1.5 h-1.5 rounded-full bg-obs-red/50 animate-pulse-live" />
                   </div>
                 )}
               </div>

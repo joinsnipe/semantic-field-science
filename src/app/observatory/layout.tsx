@@ -16,11 +16,11 @@ function useSidebarMetrics() {
   const { locale } = useLang();
   const en = locale === 'en';
   return [
-    { label: 'α', value: '0.776', status: 'critical' },
-    { label: en ? 'State' : 'Estado', value: "S1'", status: 'critical' },
-    { label: 'T_med', value: '3.1m', status: 'warning' },
-    { label: 'P(S2+ 12m)', value: '72.7%', status: 'critical' },
-    { label: 'PNR', value: '78%', status: 'warning' },
+    { label: 'α', value: '0.821', status: 'critical' },
+    { label: en ? 'State' : 'Estado', value: "S1'→S2", status: 'critical' },
+    { label: 'T_med', value: '2.5m', status: 'critical' },
+    { label: 'P(S2+ 12m)', value: '81%', status: 'critical' },
+    { label: 'PNR', value: '91%', status: 'critical' },
   ];
 }
 
@@ -80,7 +80,7 @@ export default function ObservatoryLayout({
           <div className="flex items-center gap-2 px-3 mb-3">
             <div className="w-1.5 h-1.5 rounded-full bg-obs-red animate-pulse-live" />
             <span className="text-[9px] font-mono text-obs-text-secondary/40 uppercase tracking-wider">
-              Live · Feb 2026
+              Live · Mar 2026
             </span>
           </div>
 

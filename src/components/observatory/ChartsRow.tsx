@@ -182,10 +182,10 @@ export default function ChartsRow() {
           {/* Summary stats */}
           <div className="grid grid-cols-4 gap-2 mt-3 pt-3 border-t border-obs-border/50">
             {[
-              { v: '73.9%', l: 'S2+ 3m', c: 'text-obs-red/70' },
-              { v: '52.8%', l: 'S3+ 3m', c: 'text-obs-blue/70' },
-              { v: '62.7%', l: 'S2+ 12m', c: 'text-obs-red/70' },
-              { v: '50.1%', l: 'S3+ 12m', c: 'text-obs-blue/70' },
+              { v: '82.4%', l: 'S2+ 3m', c: 'text-obs-red/70' },
+              { v: '63.1%', l: 'S3+ 3m', c: 'text-obs-blue/70' },
+              { v: '74.2%', l: 'S2+ 12m', c: 'text-obs-red/70' },
+              { v: '60.8%', l: 'S3+ 12m', c: 'text-obs-blue/70' },
             ].map((s) => (
               <div key={s.l} className="text-center">
                 <div className={`font-mono text-xs font-semibold ${s.c}`}>{s.v}</div>

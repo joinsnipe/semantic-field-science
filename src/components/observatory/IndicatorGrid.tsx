@@ -63,7 +63,8 @@ export default function IndicatorGrid() {
           <div className="flex items-center gap-3">
             <h2 className="text-sm font-semibold text-white">Indicadores no convencionales</h2>
             <span className="text-[10px] font-mono text-obs-text-secondary/30">
-              avg. <span className="text-white/70">74.8%</span>
+              avg. <span className="text-white/70">80.5%</span>
+              <span className="text-obs-red/50 ml-1.5">↑ 74.8%</span>
             </span>
           </div>
         </div>

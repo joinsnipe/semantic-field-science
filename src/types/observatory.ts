@@ -8,6 +8,7 @@ export interface SystemState {
   description: string;
   isActive: boolean;
   isPast: boolean;
+  isApproaching?: boolean; // Added Mar 2026 — for transition visualization
 }
 
 // Indicator types
@@ -90,4 +91,15 @@ export interface HeroMetric {
   badge?: string;
   badgeColor?: string;
   tooltip: string;
+}
+
+// Protocol update (added Mar 2026)
+export interface ProtocolUpdate {
+  date: string;
+  daysSinceT0: number;
+  triggerEvent: string;
+  diagnosis: string;
+  state: string;
+  previous: { alpha: string; tMed: string; pCrisis: string; avgIndicators: string };
+  current: { alpha: string; tMed: string; pCrisis: string; avgIndicators: string };
 }
