@@ -10,6 +10,7 @@ const navLinks = [
   { href: '/observatory/methodology', label: 'Methodology', icon: '◫' },
   { href: '/observatory/indicators', label: 'Indicators', icon: '◨' },
   { href: '/observatory/casestudy', label: 'Case Study', icon: '◧' },
+  { href: '/observatory/report-11-3', label: 'Informe 11-M', icon: '◈' },
 ];
 
 function useSidebarMetrics() {
@@ -188,6 +189,9 @@ export default function ObservatoryLayout({
                   </Link>
                   <Link href="/observatory/methodology" className="text-xs text-obs-text-secondary/50 hover:text-white transition-colors">
                     {en ? 'Methodology' : 'Metodología'}
+                  </Link>
+                  <Link href="/observatory/report-11-3" className="text-xs text-obs-text-secondary/50 hover:text-white transition-colors">
+                    Informe 11-M
                   </Link>
                 </div>
               </div>
